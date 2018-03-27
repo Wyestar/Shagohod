@@ -31,9 +31,9 @@ client.on("message", async message => {
     message.channel.send(yo_jeff);
   }
 
-  if(command === "Iroquois Pliskin") {
-    message.delete().catch(()=>{});
-    message.channel.send("Who's that? They must be friends with Quattro Bajeena?")
+  if(command === "iroquoispliskin") {
+    message.delete(3000).catch(()=>{});
+    message.channel.send("Who's that? They must be friends with Quattro Bajeena...")
   }
 
   // if(command === "sunshine") {
