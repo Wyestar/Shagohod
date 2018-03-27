@@ -32,7 +32,7 @@ client.on("message", async message => {
   }
 
   if(command === "Iroquois Pliskin") {
-    message.delete().catch(^_^=>{});
+    message.delete().catch(()=>{});
     message.channel.send("Who's that? They must be friends with Quattro Bajeena?")
   }
 
