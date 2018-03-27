@@ -28,6 +28,7 @@ client.on("message", async message => {
     const yo_jeff = display_name + " says: <@96084289279500288> " + args.join(" ");
 
     // message.delete().catch(^_^=>{});
+    // laksjflaks
     message.channel.send(yo_jeff);
   }
 
