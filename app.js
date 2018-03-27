@@ -30,12 +30,6 @@ client.on("message", async message => {
     message.channel.send(yo_jeff);
   }
 
-// frog ID
-// 96790631896084480
-
-// gev id
-// 96084289279500288
-
   // if(command === "sunshine") {
   //   // import gif of Sunny Emerich
   //   message.channel.send("Sunny", {
