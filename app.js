@@ -9,6 +9,7 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
+  // searches each message for '@' at beginning
 
   if(message.author.bot) return;
 
@@ -28,6 +29,11 @@ client.on("message", async message => {
 
     // message.delete().catch(^_^=>{});
     message.channel.send(yo_jeff);
+  }
+
+  if(command === "Iroquois Pliskin") {
+    message.delete().catch(^_^=>{});
+    message.channel.send("Who's that? They must be friends with Quattro Bajeena?")
   }
 
   // if(command === "sunshine") {
