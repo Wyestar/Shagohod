@@ -21,14 +21,30 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command === "jeff") {
-    const sender = message.author.username;
-    const sayMessage = sender + " says: <@96084289279500288> " + args.join(" ");
+  if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev") {
+    const display_name = message.member.nickname;
+
+    const yo_jeff = display_name + " says: <@96084289279500288> " + args.join(" ");
 
     // message.delete().catch(^_^=>{});
-
-    message.channel.send(sayMessage);
+    message.channel.send(yo_jeff);
   }
+
+// frog ID
+// 96790631896084480
+
+// gev id
+// 96084289279500288
+
+  // if(command === "sunshine") {
+  //   // import gif of Sunny Emerich
+  //   message.channel.send("Sunny", {
+  //     file:
+  //   })
+  //
+  //   // attachment is path to file location
+  //   Client.sendFile(message.channel, attachment)
+  // }
 });
 
 client.login(config.token);
