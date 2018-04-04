@@ -9,27 +9,22 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  // searches each message for '@' at beginning
+  // searches each message for '@' or '!' at beginning
 
   if(message.author.bot) return;
 
+  // early return for any non-command messages, does not work with multiple prefixes now
   // if(message.content.indexOf(config.ping_prefix) !== 0) return;
 
   if(message.content.indexOf(config.ping_prefix) === 0) {
-    // Here we separate our "command" name, and our "arguments" for the command.
-    // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
-    // command = say
-    // args = ["Is", "this", "the", "real", "life?"]
     const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
     if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev") {
       const display_name = message.member.nickname;
-
       const yo_jeff = display_name + " says: <@96084289279500288> " + args.join(" ");
 
       // message.delete().catch(^_^=>{});
-      // laksjflaks
       message.channel.send(yo_jeff);
     }
     else if(command === "iroquoispliskin") {
@@ -43,7 +38,19 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
 
     if(command === "info" || command === "help" || command === "commands") {
-      message.channel.send("go home and be a family man");
+      message.channel.send("Go home and be a family man.");
+    }
+  }
+
+  else if(message.content.indexOf(shop.cmd_prefix) === 0) {
+    const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    if(command === "shop") {
+      message.channel.send("We're not open for business yet, come back another time. If you want to use the bathroom, it's in the back...");
+    }
+    else if(commant === "balance") {
+      message.channel.send("Not even Drebin has any Drebin points yet.");
     }
   }
 
