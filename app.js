@@ -40,6 +40,10 @@ client.on("message", async message => {
     if(command === "info" || command === "help" || command === "commands") {
       message.channel.send("Go home and be a family man.");
     }
+
+    else if(command === "sunny" || command === "eggs") {
+      message.channel.send("https://static.giantbomb.com/uploads/original/0/2020/941695-2573736726_af67ec3b18_o.jpg")
+    }
   }
 
   else if(message.content.indexOf(config.shop_prefix) === 0) {
@@ -54,15 +58,15 @@ client.on("message", async message => {
     }
   }
 
-  // if(command === "sunshine") {
-  //   // import gif of Sunny Emerich
-  //   message.channel.send("Sunny", {
-  //     file:
-  //   })
-  //
-  //   // attachment is path to file location
-  //   Client.sendFile(message.channel, attachment)
-  // }
+  else if(message.content.indexOf(config.fortune_prefix) === 0) {
+    const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    
+    // to be a fortune/prediction command
+    // do something with Solis Space & Aeronautics?
+    // attachment is path to file location
+    // Client.sendFile(message.channel, attachment)
+  }
 
   return;
 });
