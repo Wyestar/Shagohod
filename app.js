@@ -9,7 +9,7 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  // searches each message for '@' or '!' at beginning
+  // searches each message for '@' or '!'' at beginning
 
   if(message.author.bot) return;
 
