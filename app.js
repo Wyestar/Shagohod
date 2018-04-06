@@ -47,6 +47,7 @@ client.on("message", async message => {
     }
   }
 
+  // may combine shop and fortune
   else if(message.content.indexOf(config.shop_prefix) === 0) {
     // const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
     // const command = args.shift().toLowerCase();
