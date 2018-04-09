@@ -22,14 +22,9 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
   if(message.content.indexOf(config.ping_prefix) === 0) {
-    // const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
-    // const command = args.shift().toLowerCase();
-
     if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev") {
       const display_name = message.member.nickname;
       const yo_jeff = display_name + " says: <@96084289279500288> " + args.join(" ");
-
-      // message.delete().catch(^_^=>{});
       message.channel.send(yo_jeff);
     }
     else if(command === "iroquoispliskin") {
@@ -39,19 +34,13 @@ client.on("message", async message => {
   }
 
   else if(message.content.indexOf(config.cmd_prefix) === 0) {
-    // const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
-    // const command = args.shift().toLowerCase();
-
     if(command === "info" || command === "help" || command === "commands") {
       message.channel.send("Go home and be a family man.");
     }
   }
 
-  // may combine shop and fortune
+  // may combine shop and fortune, pipe in if to catch either command
   else if(message.content.indexOf(config.shop_prefix) === 0) {
-    // const args = message.content.slice(config.ping_prefix.length).trim().split(/ +/g);
-    // const command = args.shift().toLowerCase();
-
     if(command === "shop") {
       message.channel.send("We're not open for business yet, come back another time. If you want to use the bathroom, it's in the back...");
     }
