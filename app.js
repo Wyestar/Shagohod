@@ -6,8 +6,9 @@ const config = require("./config.json");
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
   // randomize game?
-  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Metal Gear Pachinko', 'Snatcher 3']
-  client.user.setGame(`Metal Gear Survive 2: Lords of Dust`);
+  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Metal Gear Pachinko', 'Snatcher 3: Bioroids Divided'];
+  const random = Math.floor(Math.random() * 3);
+  client.user.setGame(games[random]);
 });
 
 client.on("message", async message => {
