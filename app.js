@@ -6,8 +6,8 @@ const config = require("./config.json");
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
   // randomize game?
-  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Metal Gear Pachinko', 'Metal Gear: Ghost Babel', 'Snatcher 3: Bioroids Divided'];
-  const random = Math.floor(Math.random() * 4);
+  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Metal Gear Pachinko', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Snatcher 3: Bioroids Divided'];
+  const random = Math.floor(Math.random() * 5);
   client.user.setGame(games[random]);
 });
 
@@ -23,6 +23,7 @@ client.on("message", async message => {
   const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
+  // add string parser?
   if(message.content.indexOf(config.ping_prefix) === 0) {
     if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev") {
       const display_name = message.member.nickname;
@@ -57,7 +58,7 @@ client.on("message", async message => {
       message.channel.send("https://static.giantbomb.com/uploads/original/0/2020/941695-2573736726_af67ec3b18_o.jpg")
     }
     else if(command === "explain") {
-      message.channel.send("saltybet feature, brought to you by Solis Space & Aeronautics")
+      message.channel.send("This _ feature, brought to you by Solis Space & Aeronautics")
     }
   }
 
