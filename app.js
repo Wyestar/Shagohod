@@ -43,14 +43,15 @@ client.on("message", async message => {
   }
 
   // may combine shop and fortune, pipe in if to catch either command
-  else if(message.content.indexOf(config.shop_prefix) === 0) {
-    if(command === "shop") {
-      message.channel.send("We're not open for business yet, come back another time. If you want to use the bathroom, it's in the back...");
-    }
-    else if(commant === "balance") {
-      message.channel.send("Not even Drebin has any Drebin points yet.");
-    }
-  }
+  // shop_prefix = "$"
+  // else if(message.content.indexOf(config.shop_prefix) === 0) {
+  //   if(command === "shop") {
+  //     message.channel.send("We're not open for business yet, come back another time. If you want to use the bathroom, it's in the back...");
+  //   }
+  //   else if(commant === "balance") {
+  //     message.channel.send("Not even Drebin has any Drebin points yet.");
+  //   }
+  // }
 
   else if(message.content.indexOf(config.fortune_prefix) === 0) {
 
