@@ -42,7 +42,8 @@ client.on("message", async message => {
     }
   }
 
-  // may combine shop and fortune, pipe in if to catch either command
+  // may combine shop and fortune
+  // shop needs a database, envdb, json storage, firebase?
   // shop_prefix = "$"
   // else if(message.content.indexOf(config.shop_prefix) === 0) {
   //   if(command === "shop") {
