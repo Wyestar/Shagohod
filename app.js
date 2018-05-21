@@ -5,8 +5,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
-  // randomize game?
-  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Metal Gear Rising Deux: Children of the Bladewolves', 'Metal Gear Pachinko', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Pro Evolution Soccer 2004'];
+  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Metal Gear Rising Deux: Les Enfants des Épée', 'Metal Gear Pachinko', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Pro Evolution Soccer 2004'];
   const random = Math.floor(Math.random() * 7);
   client.user.setGame(games[random]);
 });
@@ -16,14 +15,9 @@ client.on("message", async message => {
 
   if(message.author.bot) return;
 
-  // early return for any non-command messages, does not work with multiple prefixes now
-  // can set multiple conditions if message[0] is not any command prompts
-  // if(message.content.indexOf(config.ping_prefix) !== 0) return;
-
   const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  // add string parser?
   if(message.content.indexOf(config.ping_prefix) === 0) {
     if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev") {
       const display_name = message.member.nickname;
@@ -42,25 +36,14 @@ client.on("message", async message => {
     }
   }
 
-  // may combine shop and fortune
-  // shop needs a database, envdb, json storage, firebase?
-  // shop_prefix = "$"
-  // else if(message.content.indexOf(config.shop_prefix) === 0) {
-  //   if(command === "shop") {
-  //     message.channel.send("We're not open for business yet, come back another time. If you want to use the bathroom, it's in the back...");
-  //   }
-  //   else if(commant === "balance") {
-  //     message.channel.send("Not even Drebin has any Drebin points yet.");
-  //   }
-  // }
-
+  // to add 'shop' and 'balance' features with drebin points
   else if(message.content.indexOf(config.fortune_prefix) === 0) {
 
     if(command === "sunny" || command === "eggs") {
       message.channel.send("https://static.giantbomb.com/uploads/original/0/2020/941695-2573736726_af67ec3b18_o.jpg")
     }
     else if(command === "explain") {
-      message.channel.send("This _ feature, brought to you by Solis Space & Aeronautics")
+      message.channel.send("This speculative fortune feature is brought to you by Solis Space & Aeronautics")
     }
   }
 
