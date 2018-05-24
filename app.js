@@ -36,7 +36,7 @@ client.on("message", async message => {
     }
   }
 
-  // to add 'shop' and 'balance' features with drebin points
+  // to add 'shop' and 'balance' features with drebin points, using enmap?
   else if(message.content.indexOf(config.fortune_prefix) === 0) {
 
     if(command === "sunny" || command === "eggs") {
