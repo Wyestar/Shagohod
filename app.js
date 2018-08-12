@@ -4,14 +4,13 @@ const client = new Discord.Client();
 const config = require("./config.json");
 
 client.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully.
   const games = [`Metal Gear Survive 2: Lords of Dust`, 'Silent Hillz', 'Metal Gear Rising Deux: Les Enfants des Épée (Lightning Bolt Action)', 'Metal Gear Pachinko', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Castlevania Judgement 2', 'Pro Evolution Soccer 2004', 'International Superstar Soccer 2', 'Death Stranding II: Genesis Nova'];
   const random = Math.floor(Math.random() * 11);
   client.user.setGame(games[random]);
 });
 
 client.on("message", async message => {
-  // searches each message for prompts at beginning
+  // searches each message for prefixes at beginning
 
   if(message.author.bot) return;
 
@@ -19,7 +18,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
   if(message.content.indexOf(config.ping_prefix) === 0) {
-    if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev") {
+    if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev" || command === "gef") {
       const display_name = message.member.nickname;
       const yo_jeff = display_name + " says: <@96084289279500288> " + args.join(" ");
       message.channel.send(yo_jeff);
@@ -36,7 +35,7 @@ client.on("message", async message => {
     }
   }
 
-  // to add 'shop' and 'balance' features with drebin points, using enmap?
+  // shop feature
   else if(message.content.indexOf(config.fortune_prefix) === 0) {
 
     if(command === "sunny" || command === "eggs") {
