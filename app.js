@@ -1,48 +1,44 @@
-const Discord = require('discord.js');
+// const Discord = require('discord.js');
+import Discord from 'discord.js';
 const client = new Discord.Client();
+
+import { ping } from "./messageUtilities/pings/jeff.js";
+import { fortune } from "./messageUtilities/fortunes/drebin.js";
 
 const config = require("./config.json");
 
+const games = [`Metal Gear Survive 2: Lords of Dust`, 'Silent Hillz', 'Metal Gear Rising Deux: Les Louves des Épée', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Castlevania Judgement 2', 'Pro Evolution Soccer 2004',  'Death Stranding II: Genesis Nova'];
+
 client.on("ready", () => {
-  const games = [`Metal Gear Survive 2: Lords of Dust`, 'Silent Hillz', 'Metal Gear Rising Deux: Les Louves des Épée', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Castlevania Judgement 2', 'Pro Evolution Soccer 2004',  'Death Stranding II: Genesis Nova'];
-  const random = Math.floor(Math.random() * 10);
-  client.user.setGame(games[random]);
+  client.user.setGame(games[Math.floor(Math.random() * 10]).catch();
 });
 
 client.on("message", async message => {
 
-  if(message.author.bot) return;
+  if (message.author.bot) return;
 
+  const type = message.content[0];
   const args = message.content.slice(1).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(message.content.indexOf(config.pingPrefix) === 0) {
-    if(command === "jeff" || command === "jef" || command === "geff" || command === "gef" || command === "geoff" || command === "jeffrey" || command === "gev" || command === "gef") {
-      const display_name = message.member.nickname;
-      const yoJeff = display_name + " says: <@96084289279500288> " + args.join(" ");
-      message.channel.send(yoJeff);
-    }
-    else if(command === "iroquoispliskin") {
+  if (type === config.pingPrefix) {
+    const messageToDisplay = ping(message);
+    if (!messageToDisplay) {
       message.delete(4000).catch(()=>{});
-      message.channel.send("Who's that? They must be friends with Quattro Bajeena...")
+      message.channel.send("Who's that? They must be friends with Quattro Bajeena...");
     }
+    message.channel.send(messageToDisplay);
   }
 
-  else if(message.content.indexOf(config.cmdPrefix) === 0) {
-    if(command === "info" || command === "help" || command === "commands") {
+  else if (type === config.cmdPrefix) {
+    if (command === "info" || command === "help" || command === "commands") {
       message.channel.send("Go home and brush your teeth.");
     }
   }
 
-  // shop feature
-  else if(message.content.indexOf(config.fortunePrefix) === 0) {
-
-    if(command === "sunny" || command === "eggs") {
-      message.channel.send("https://static.giantbomb.com/uploads/original/0/2020/941695-2573736726_af67ec3b18_o.jpg")
-    }
-    else if(command === "explain") {
-      message.channel.send("This speculative fortune feature is brought to you by Solis Space & Aeronautics")
-    }
+  else if (type === config.fortunePrefix) {
+    const fortuneToDisplay = fortune();
+    message.channel.send(fortuneToDisplay);
   }
 
   return;
