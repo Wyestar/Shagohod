@@ -1,6 +1,6 @@
 const nicknames = ["jeff", "jef", "geff", "gef", "geoff", "jeffrey", "gev", "gef"];
 
-export const ping(message) {
+const ping = (message) => {
 	const args = message.content.slice(1).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	if (nicknames.indexOf(command) >= 0) {
@@ -8,4 +8,8 @@ export const ping(message) {
 	}
 
 	return null;
+}
+
+module.exports = {
+	ping
 }
