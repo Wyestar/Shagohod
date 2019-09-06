@@ -22,7 +22,7 @@ client.on("message", async message => {
     const messageToDisplay = ping(message);
     if (!messageToDisplay) {
       message.delete(4000).catch(()=>{});
-      message.channel.send("Who's that? They must be friends with Quattro Bajeena...");
+      message.channel.send("Who's that? They must be friends with Iroquois Pliskin...");
     }
     message.channel.send(messageToDisplay);
   }
