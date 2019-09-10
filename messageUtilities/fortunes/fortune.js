@@ -16,11 +16,11 @@ const getFortunesFromS3 = async () => {
 	return data;
 };
 
-// const getUserFortune = (id) => {
-// 	const fortunes = getFortunesFromS3()
-// 	console.error('fortunes222: ', fortunes)
-// 	return fortunes[id];
-// };
+const getUserFortune = (id) => {
+	const fortunes = getFortunesFromS3();
+	console.error('fortunes222: ', fortunes);
+	return fortunes[id];
+};
 
 const fortune = (message) => {
 	const args = message.content.slice(1).trim().split(/ +/g);
@@ -28,7 +28,7 @@ const fortune = (message) => {
 
 	if (command === "collude") {
 		if (message.author.id === "96084289279500288") {
-			let test = getFortunesFromS3();
+			let test = getUserFortune(message.author.id);
 			console.error('s3 test final: ', test);
 			const amount = fortuneCloud["96084289279500288"] + 10;
 			// console.error('s3 amount final: ', amount);
