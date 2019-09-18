@@ -20,6 +20,10 @@ client.on("message", async message => {
 
   const type = message.content[0];
 
+  if (message.content.length <= 1) {
+    return;
+  }
+
   if (type === config.pingPrefix) {
     const messageToDisplay = ping(message);
     if (!messageToDisplay) {
