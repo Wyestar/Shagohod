@@ -6,7 +6,7 @@ const { command } = require("./messageUtilities/commands/command.js");
 const { fortune } = require("./messageUtilities/fortunes/fortune.js");
 const config = require("./config.json");
 
-const games = [`Metal Gear Survive 2: Lords of Dust`, 'Silent Hillz', 'Metal Gear Rising Deux: Les Louves des Épée', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Castlevania Judgement 2', 'Pro Evolution Soccer 2004',  'Death Stranding II: Genesis Nova'];
+const games = [`Metal Gear Survive 2: Lords of Dust`, 'Silent Hillz', 'Metal Gear Rising Deux: Les Louves des Épée', 'Metal Gear: Ghost Babel', 'Metal Gear Solid 6: Widow of Cipher', 'Zone of the Enders III: Shadow of Callisto', 'Snatcher 3: Bioroids Divided', 'Castlevania Judgement 2', 'Pro Evolution Soccer 2004',  'Death Stranding II: Genesis Nova', 'Contra: Rogue Corps 2'];
 
 client.on("ready", () => {
   const gameName = games[Math.floor(Math.random() * 10)];
