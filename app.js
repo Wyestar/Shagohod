@@ -14,6 +14,9 @@ client.on("ready", () => {
   // client.user.setGame(games[Math.floor(Math.random() * 10)])
 });
 
+//clinet.on()
+//disconnect, initiate reconnect
+
 client.on("message", async message => {
 
   if (message.author.bot) return;
