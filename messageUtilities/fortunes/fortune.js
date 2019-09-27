@@ -22,6 +22,14 @@ const getUserFortune = (id) => {
 	return fortunes[id];
 };
 
+const bet = (id) => {
+	// add rng wagers
+}
+
+const escapeBankruptcy = (id) => {
+	// grant 100, add to bail out counter
+}
+
 const fortune = (message) => {
 	const args = message.content.slice(1).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
@@ -30,7 +38,7 @@ const fortune = (message) => {
 		if (message.author.id === "96084289279500288") {
 			let test = getUserFortune(message.author.id);
 			console.error('s3 test final: ', test);
-			const amount = fortuneCloud["96084289279500288"] + 10;
+			const amount = fortuneCloud["96084289279500288"]["values"] + 10;
 			// console.error('s3 amount final: ', amount);
 
 			return "Collusion successful; Gev now has "+amount+" Drebin Points";
