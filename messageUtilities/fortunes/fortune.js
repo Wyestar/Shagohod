@@ -24,6 +24,7 @@ const getUserFortune = (id) => {
 
 const bet = (id) => {
 	// add rng wagers
+	// need to
 }
 
 const escapeBankruptcy = (id) => {
