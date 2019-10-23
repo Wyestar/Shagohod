@@ -29,6 +29,9 @@ client.on("message", async message => {
 
   if (type === config.pingPrefix) {
     const messageToDisplay = ping(message);
+    if (messageToDisplay === 'group') {
+      return;
+    }
     if (!messageToDisplay) {
       message.delete(4000).catch(()=>{});
       message.channel.send("Who's that? They must be friends with Iroquois Pliskin...");

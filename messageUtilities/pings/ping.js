@@ -1,10 +1,11 @@
 const nicknames = ["jeff", "jef", "geff", "gef", "geoff", "jeffrey", "gev", "gef"];
 
 const ping = (message) => {
+	const originalMessage = message;
 	const args = message.content.slice(1).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	if (command === 'here' || command === 'everyone') {
-		return message;
+		return 'group';
 	}
 
 	if (nicknames.indexOf(command) >= 0) {
