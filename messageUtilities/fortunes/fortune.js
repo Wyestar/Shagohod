@@ -24,7 +24,6 @@ const getUserFortune = (id) => {
 
 const bet = (id) => {
 	// add rng wagers
-	// need to
 }
 
 const escapeBankruptcy = (id) => {
@@ -36,13 +35,14 @@ const fortune = (message) => {
 	const command = args.shift().toLowerCase();
 
 	if (command === "collude") {
-		if (message.author.id === "96084289279500288") {
-			let test = getUserFortune(message.author.id);
-			console.error('s3 test final: ', test);
-			const amount = fortuneCloud["96084289279500288"]["values"] + 10;
+
+		if ((Math.floor(Math.random() * 10)) === 6) {
+			// let test = getUserFortune(message.author.id);
+			// console.error('s3 test final: ', test);
+			// const amount = fortuneCloud["96084289279500288"]["values"] + 10;
 			// console.error('s3 amount final: ', amount);
 
-			return "Collusion successful; Gev now has "+amount+" Drebin Points";
+			return "Collusion successful; Drebin Points deposited. See attached paperwork for details.";
 		}
 
 		return "You can not collude."
