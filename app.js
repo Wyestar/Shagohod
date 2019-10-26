@@ -29,7 +29,10 @@ client.on("message", async message => {
 
   if (type === config.pingPrefix) {
     const messageToDisplay = ping(message);
-    if (messageToDisplay === 'group') {
+    if (messageToDisplay) {
+      if (messageToDisplay.length > 0) {
+        message.channel.send(messageToDisplay);
+      }
       return;
     }
     if (!messageToDisplay) {
