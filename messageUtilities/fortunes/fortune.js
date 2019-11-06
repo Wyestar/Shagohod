@@ -48,7 +48,7 @@ const fortune = (message) => {
 		return "You can not collude."
 	}
 
-	if (command === "amount") {
+	if (command === "amount" || command === "bank") {
 		return "What makes you think you'd have any Drebin Points?"
 	}
 

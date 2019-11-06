@@ -11,7 +11,6 @@ const games = [`Metal Gear Survive 2: Lords of Dust`, 'Silent Hillz', 'Metal Gea
 client.on("ready", () => {
   const gameName = games[Math.floor(Math.random() * 10)];
   client.user.setPresence({ game: { name: gameName }, status: 'active' }).catch(()=>{});
-  // client.user.setGame(games[Math.floor(Math.random() * 10)])
 });
 
 //clinet.on()
