@@ -42,7 +42,7 @@ const fortune = (message) => {
 			// const amount = fortuneCloud["96084289279500288"]["values"] + 10;
 			// console.error('s3 amount final: ', amount);
 
-			return "Collusion successful; Drebin Points deposited. See attached paperwork for details.";
+			return "Collusion successful; Drebin Points transferred. See attached paperwork for details.";
 		}
 
 		return "You can not collude."

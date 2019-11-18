@@ -26,13 +26,10 @@ client.on("message", async message => {
     return;
   }
 
-  if (type === config.pingPrefix) {
+  if (message.content.indexOf(config.pingPrefix) >= 0) {
     const messageToDisplay = ping(message);
     if (messageToDisplay) {
-      if (messageToDisplay.length > 0) {
         message.channel.send(messageToDisplay);
-      }
-      return;
     }
     if (!messageToDisplay) {
       message.delete(4000).catch(()=>{});
