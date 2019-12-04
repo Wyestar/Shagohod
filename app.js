@@ -47,8 +47,6 @@ client.on("message", async message => {
     const fortuneToDisplay = fortune(message);
     message.channel.send(fortuneToDisplay);
   }
-
-  return;
 });
 
 client.login(config.token).catch(()=>{});;

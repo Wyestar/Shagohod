@@ -6,6 +6,7 @@ const ping = (message) => {
 	for (let i = 0; i < msgSections.length; i++) {
 		if (msgSections[i][0] === '@') {
 			if (nicknames.indexOf(msgSections[i].slice(1)) >= 0) {
+				// move this check against array constant to before for loop?
 				msgSections[i] = '<@96084289279500288>';
 				const reconstruction = msgSections.join(" ");
 				return message.member.nickname + ": " + reconstruction;
