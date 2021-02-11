@@ -2,16 +2,16 @@ const command = (message) => {
 	const args = message.content.slice(1).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 
-	if (message.author.id === '96749063118008320' && command === 'pee') {
+	if (message.author.id === '96749063118008320' && (command === 'pee' || command === 'pp')) {
 		return "poop";
 	}
 
-	if (message.author.id === '80863497977597952' && command === 'poop') {
+	if (message.author.id === '80863497977597952' && (command === 'poop' || command === "poo")) {
 		return "pee";
 	}
 
-	if (message.author.id === '96084289279500288' && command === 'sunny') {
-		return "https://static1.fjcdn.com/comments/But+there+were+complications+_6f207f4c3e52de123b28164e4eea0816.jpg";
+	if (message.author.id === '96084289279500288' && command === 'paz') {
+		return `https://www.youtube.com/watch?v=Gbe_HIL46lY`;
 	}
 
 	if (command === "info" || command === "help" || command === "commands") {

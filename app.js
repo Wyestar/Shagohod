@@ -58,6 +58,7 @@ client.on("message", async (message) => {
     if (!messageToDisplay) {
       // message.delete(6000)
       // .catch(()=>{});
+      return;
     }
   }
 
@@ -70,6 +71,7 @@ client.on("message", async (message) => {
   //   const fortuneToDisplay = fortune(message);
   //   message.channel.send(fortuneToDisplay);
   // }
+  return;
 });
 
 client.login(token).catch(()=>{});
