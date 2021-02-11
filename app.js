@@ -61,7 +61,7 @@ client.on("message", async (message) => {
     }
   }
 
-  else if (type === cmdPrefix) {
+  else if (message.content.indexOf(cmdPrefix) === 0) {
     const commandToDisplay = command(message);
     message.channel.send(commandToDisplay).catch(()=>{});
   }
