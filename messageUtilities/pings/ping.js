@@ -17,7 +17,7 @@ const ping = (message) => {
 				return message.member.nickname + ": " + msgReconstruction;
 			}
 			if (msgSections[i].includes(gev)) {
-				return null;
+				return "Iroquois Pliskin is not who you are looking for...";
 			}
 			// if (msgSections[i].slice(1) === 'everyone' || msgSections[i].slice(1) === 'here') {
 			// 	return null;

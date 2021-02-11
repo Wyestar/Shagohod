@@ -10,6 +10,10 @@ const command = (message) => {
 		return "pee";
 	}
 
+	if (message.author.id === '96084289279500288' && command === 'sunny') {
+		return "https://static1.fjcdn.com/comments/But+there+were+complications+_6f207f4c3e52de123b28164e4eea0816.jpg";
+	}
+
 	if (command === "info" || command === "help" || command === "commands") {
 		return "No one quite knows who or what they are.";
 	}

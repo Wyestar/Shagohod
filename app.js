@@ -58,7 +58,6 @@ client.on("message", async (message) => {
     if (!messageToDisplay) {
       // message.delete(6000)
       // .catch(()=>{});
-      message.channel.send("Iroquois Pliskin is not who you are looking for...").catch(()=>{});
     }
   }
 
