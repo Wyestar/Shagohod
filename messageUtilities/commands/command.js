@@ -7,7 +7,15 @@ const command = (message) => {
 	}
 
 	if (command === "info" || command === "help" || command === "commands") {
-		return "Go home and brush your teeth.";
+		return "No one quite knows who or what they are.";
+	}
+
+	if (!command[0].match(`^[A-Za-z0-9]*$`)) {
+		// ^[A-Za-z0-9]*$
+		// regex to match first char as alphanumeric
+		// prevent commands like '!!!' from being caught
+
+		return null;
 	}
 
 	return "Nanomachines, son."

@@ -24,25 +24,31 @@ const getUserFortune = (id) => {
 
 const bet = (id) => {
 	// add rng wagers
-}
+	// gen random number?
+
+
+};
 
 const escapeBankruptcy = (id) => {
 	// grant 100, add to bail out counter
-}
+};
 
 const fortune = (message) => {
+	// must return a string, non-empty. for channel send
 	const args = message.content.slice(1).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 
 	if (command === "collude") {
 
-		if ((Math.floor(Math.random() * 10)) === 6) {
-			// let test = getUserFortune(message.author.id);
-			// console.error('s3 test final: ', test);
-			// const amount = fortuneCloud["96084289279500288"]["values"] + 10;
-			// console.error('s3 amount final: ', amount);
+		if (message.author.id === '96084289279500288') {
+			if ((Math.floor(Math.random() * 10)) === 6) {
+				// let test = getUserFortune(message.author.id);
+				// console.error('s3 test final: ', test);
+				// const amount = fortuneCloud["96084289279500288"]["values"] + 10;
+				// console.error('s3 amount final: ', amount);
 
-			return "Collusion successful; Drebin Points transferred. See attached paperwork for details.";
+				return "Collusion successful; Drebin Points transferred. See attached paperwork for details.";
+			}
 		}
 
 		return "You can not collude."
