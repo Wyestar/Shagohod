@@ -6,6 +6,10 @@ const command = (message) => {
 		return "poop";
 	}
 
+	if (message.author.id === '80863497977597952' && command === 'poop') {
+		return "pee";
+	}
+
 	if (command === "info" || command === "help" || command === "commands") {
 		return "No one quite knows who or what they are.";
 	}

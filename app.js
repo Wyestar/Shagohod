@@ -5,7 +5,7 @@ const { ping } = require("./messageUtilities/pings/ping.js");
 const { command } = require("./messageUtilities/commands/command.js");
 const { fortune } = require("./messageUtilities/fortunes/fortune.js");
 
-const config = require("./config.json");
+const { token, pingPrefix, cmdPrefix } = require("./config.json");
 
 const games = [
   'Silent Hillz',
@@ -24,37 +24,47 @@ const games = [
   'Gradius Mobile',
 ];
 
-client.once("ready", () => {
-  const gameName = games[Math.floor(Math.random() * 10)];
-  client.user.setPresence({ game: { name: gameName }, status: 'active' }).catch(()=>{});
+client.on("ready", () => {
+  let gameName = games[Math.floor(Math.random() * games.length)];
+  if (!gameName) {
+    gameName = games[Math.floor(Math.random() * 10)];
+  }
+  console.log('gamename: ', gameName);
+  client.user.setActivity(gameName, { type: 'PLAYING' }).catch(() => {});  
 });
 
-//clinet.on()
-//disconnect, initiate reconnect
+client.on("message", async (message) => {
+  // message.guild.members.cache.forEach(m => console.log('member', m.user))
 
-client.on("message", async message => {
+  // msg.cnt.startsWith()
+
+  // console.log('server info3: ', message.client.guilds.constructor.name);
+  // console.log('server info user: ', message.guild.members.user);
+
+  // message.channel.send('server info test3');
+  // message.author 
+  // message.mentions.users
 
   if (message.author.bot || message.content.length <= 1) return;
 
   // prefix
-  const type = message.content[0];
+  // const type = message.content[0];
 
-  if (message.content.indexOf(config.pingPrefix) >= 0) {
+  if (message.content.indexOf(pingPrefix) >= 0) {
     const messageToDisplay = ping(message);
     if (messageToDisplay) {
         message.channel.send(messageToDisplay);
     }
-    // if (messageToDisplay === 'punctuation') {}
     if (!messageToDisplay) {
-      message.delete(6000).catch(()=>{});
-      message.channel.send("Iroquois Pliskin is unavailable...");
+      // message.delete(6000)
+      // .catch(()=>{});
+      message.channel.send("Iroquois Pliskin is not who you are looking for...").catch(()=>{});
     }
-    // message.channel.send(messageToDisplay);
   }
 
-  else if (type === config.cmdPrefix) {
+  else if (type === cmdPrefix) {
     const commandToDisplay = command(message);
-    message.channel.send(commandToDisplay)
+    message.channel.send(commandToDisplay).catch(()=>{});
   }
 
   // else if (type === config.fortunePrefix) {
@@ -63,4 +73,4 @@ client.on("message", async message => {
   // }
 });
 
-client.login(config.token).catch(()=>{});;
+client.login(token).catch(()=>{});

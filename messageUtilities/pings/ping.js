@@ -1,4 +1,6 @@
-const nicknames = ["jeff", "jef", "geff", "gef", "geoff", "jeffrey", "gev", "gef"];
+const nicknames = ["jeff", "jef", "geff", "gef", "geoff", "jeffrey"];
+
+const gev = "gev";
 
 const ping = (message) => {
 	const messageCopy = message.content;
@@ -6,20 +8,20 @@ const ping = (message) => {
 	// qwer @jeff asdf
 	// qwer @__ asdf
 
-	const msgSections = messageCopy.split(/ +/g);
+	const msgSections = messageCopy.trim().split(/ +/g);
 	for (let i = 0; i < msgSections.length; i++) {
 		if (msgSections[i][0] === '@') {
 			if (nicknames.indexOf(msgSections[i].slice(1)) >= 0) {
-				// move this check against array constant to before for loop?
 				msgSections[i] = '<@96084289279500288>';
-				const reconstruction = msgSections.join(" ");
-				return message.member.nickname + ": " + reconstruction;
+				const msgReconstruction = msgSections.join(" ");
+				return message.member.nickname + ": " + msgReconstruction;
 			}
-			if (msgSections[i].slice(1) === 'everyone' || msgSections[i].slice(1) === 'here') {
+			if (msgSections[i].includes(gev)) {
 				return null;
-				// don't send string to resend, catches and repeats group ping!?
-				// stop bool check from return
 			}
+			// if (msgSections[i].slice(1) === 'everyone' || msgSections[i].slice(1) === 'here') {
+			// 	return null;
+			// }
 		}
 	}
 
